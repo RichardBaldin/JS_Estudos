@@ -9,20 +9,24 @@ const simbolos = [
     '(',')'
 ]
 
+fn.composicao(
+    fn.lerDiretorio,
+    fn.elementosTerminadosCom('.srt'),
+fn.lerArquivos,
+fn.mesclarElementos,
+fn.separarTextoPor('\n'),
+fn.removerElementosSeVazio,
+linhas => fn.removerElementosSeIncluir('-->')(linhas),
+fn.removerElementosSeApenasNumero,
+fn.removerSimbolos(simbolos),
+fn.mesclarElementos,
+fn.separarTextoPor(' '),
+fn.removerElementosSeVazio,
+fn.removerElementosSeApenasNumero,
+fn.agruparElementos,
+fn.ordenarPorAtribNumerico('qtde', 'desc'),
+console.log
 
-fn.lerDiretorio(caminho)
-    .then(fn.elementosTerminadosCom('.srt'))
-    .then(fn.lerArquivos)
-    .then(fn.mesclarElementos)
-    .then(fn.separarTextoPor('\n'))
-    .then(fn.removerElementosSeVazio)
-    .then(linhas => fn.removerElementosSeIncluir('-->')(linhas))
-    .then(fn.removerElementosSeApenasNumero)
-    .then(fn.removerSimbolos(simbolos))
-    .then(fn.mesclarElementos)
-    .then(fn.separarTextoPor(' '))
-    .then(fn.removerElementosSeVazio)
-    .then(fn.removerElementosSeApenasNumero)
-    .then(fn.agruparElementos)
-    .then(fn.ordenarPorAtribNumerico('qtde', 'desc'))
-    .then(console.log)
+)(caminho)
+
+
